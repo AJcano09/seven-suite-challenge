@@ -162,6 +162,61 @@ BEGIN
 END
 GO
 
+
+/* =========================================================
+   STORED PROCEDURE: GET ALL estado civil
+   ========================================================= */
+
+CREATE  PROCEDURE dbo.sp_EstadoCivil_GetAll
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT Id, Nombre
+    FROM dbo.EstadoCivil
+    ORDER BY Nombre;
+END
+GO
+
+/* =========================================================
+   STORED PROCEDURE: GET BY id SEVECLIE
+   ========================================================= */
+CREATE PROCEDURE dbo.sp_SEVECLIE_GetById
+    @Id INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        c.Id,
+        c.Cedula,
+        c.Nombre,
+        c.Genero,
+        c.FechaNac,
+        c.EstadoCivilId,
+        ec.Nombre AS EstadoCivil
+    FROM dbo.SEVECLIE c
+    INNER JOIN dbo.EstadoCivil ec ON ec.Id = c.EstadoCivilId
+    WHERE c.Id = @Id;
+END
+GO
+
+/* =========================================================
+   STORED PROCEDURE: GET BY id SEVECLIE
+   ========================================================= */
+CREATE PROCEDURE dbo.sp_SEVECLIE_Delete
+    @Id INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DELETE FROM dbo.SEVECLIE
+    WHERE Id = @Id;
+END
+GO
+
+
+
 /* =========================================================
    SEEDER: Datos de prueba SEVECLIE
    ========================================================= */

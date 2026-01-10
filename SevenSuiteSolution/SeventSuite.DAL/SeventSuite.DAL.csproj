@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatalogoDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="Helper\StoreProcedureHelper.cs" />

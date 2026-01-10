@@ -54,6 +54,43 @@ namespace SeventSuite.DAL
             return result;
         }
 
+        public Cliente GetById(int id)
+        {
+            var parameters = new List<SqlParameter>
+    {
+        new SqlParameter("@Id", id)
+    };
+
+            SqlConnection cn;
+
+            using (var rd = StoredProcedureHelper.ExecuteReader(
+                "dbo.sp_SEVECLIE_GetById",
+                parameters,
+                out cn))
+            {
+                using (cn)
+                {
+                    if (!rd.Read())
+                        return null;
+
+                    return MapCliente(rd);
+                }
+            }
+        }
+
+
+        public void Delete(int id)
+        {
+            var parameters = new List<SqlParameter>
+    {
+        new SqlParameter("@Id", id)
+    };
+
+            StoredProcedureHelper.ExecuteNonQuery(
+                "dbo.sp_SEVECLIE_Delete",
+                parameters);
+        }
+
         private Cliente MapCliente(SqlDataReader rd)
         {
             return new Cliente
