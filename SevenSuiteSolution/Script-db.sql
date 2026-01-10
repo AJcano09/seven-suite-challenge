@@ -18,6 +18,18 @@ IF OBJECT_ID('dbo.sp_SEVECLIE_Upsert', 'P') IS NOT NULL
     DROP PROCEDURE dbo.sp_SEVECLIE_Upsert;
 GO
 
+IF OBJECT_ID('dbo.sp_EstadoCivil_GetAll', 'P') IS NOT NULL
+    DROP PROCEDURE dbo.sp_EstadoCivil_GetAll;
+GO
+
+IF OBJECT_ID('dbo.sp_SEVECLIE_GetById', 'P') IS NOT NULL
+    DROP PROCEDURE dbo.sp_SEVECLIE_GetById;
+GO
+
+IF OBJECT_ID('dbo.sp_SEVECLIE_Delete', 'P') IS NOT NULL
+    DROP PROCEDURE dbo.sp_SEVECLIE_Delete;
+GO
+
 IF OBJECT_ID('dbo.SEVECLIE', 'U') IS NOT NULL
     DROP TABLE dbo.SEVECLIE;
 GO
@@ -202,7 +214,7 @@ END
 GO
 
 /* =========================================================
-   STORED PROCEDURE: GET BY id SEVECLIE
+   STORED PROCEDURE: DELETE SEVECLIE
    ========================================================= */
 CREATE PROCEDURE dbo.sp_SEVECLIE_Delete
     @Id INT
