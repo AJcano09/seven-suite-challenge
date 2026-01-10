@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthService.cs" />
+    <Compile Include="ClienteErrorMessages.cs" />
     <Compile Include="ClientService.cs" />
+    <Compile Include="Enums\ClientError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
