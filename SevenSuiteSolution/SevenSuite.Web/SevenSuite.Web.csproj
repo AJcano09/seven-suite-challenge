@@ -121,6 +121,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SevenSuite.BLL\SevenSuite.BLL.csproj">
+      <Project>{dac8ccba-d902-4a0e-98a4-b138ca97fc94}</Project>
+      <Name>SevenSuite.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SevenSuite.Entities\SevenSuite.Entities.csproj">
+      <Project>{95961749-e059-45f1-853f-7847a4ef61e4}</Project>
+      <Name>SevenSuite.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
