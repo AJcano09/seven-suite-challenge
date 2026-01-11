@@ -1,0 +1,422 @@
+﻿/* 
+  SevenSuite Challenge
+  CSS compatible con WebForms / VS2015
+  Layout basado en Flexbox (CSS 3.0 safe)
+*/
+
+
+/* ===== Base Reset ===== */
+html, body, form {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* ===== GLOBAL ===== */
+
+/* Inputs compactos */
+.form-group input[type="text"],
+.form-group select {
+  height: 32px;
+  font-size: 13px;
+  padding: 2px 4px;
+  box-sizing: border-box;
+}
+
+/* GRID GENERAL */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  
+}
+
+/* TABLA FULL WIDTH */
+.full-width {
+  width: 100%;
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table.grid {
+  width: 100%;
+  min-width: 900px;
+}
+
+/* BOTONES TABLA */
+.actions {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.btn-mini {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-mini:hover {
+  background: #1e40af;
+}
+
+.btn-danger {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background: #dc2626;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #991b1b;
+}
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+/* ================= LOGIN ================= */
+
+.login-page {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f3f4f6;
+}
+
+.login-card-2col {
+    width: 900px;
+    height: 480px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.15);
+    display: flex;
+    overflow: hidden;
+}
+
+.login-left-panel {
+    width: 40%;
+    background-image: url('../content/assets/img/login-bg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+
+.brand {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.login-right-panel {
+    width: 60%;
+    padding: 60px 80px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-right-panel h2 {
+    margin: 0 0 6px 0;
+}
+
+.login-right-panel .subtitle {
+    margin: 0 0 28px 0;
+    font-size: 14px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.login-right-panel .btn-primary {
+    margin-top: 10px;
+    padding: 12px;
+    width: 100%;
+}
+
+
+/* ================= CLIENTES ================= */
+
+.page {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    margin: 0;
+}
+
+.page-header .subtitle {
+    margin-top: 6px;
+    color: #666;
+    font-size: 14px;
+}
+
+.header-actions button {
+    margin-left: 10px;
+}
+
+/* ===== TWO COLUMNS LAYOUT ===== */
+
+.grid-2 {
+    display: flex;
+}
+
+.grid-2 > div:first-child {
+    width: 65%;
+    margin-right: 20px;
+}
+
+.grid-2 > div:last-child {
+    width: 35%;
+}
+
+/* ===== CARDS ===== */
+
+.card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.card-title h3 {
+    margin: 0;
+}
+
+.muted {
+    font-size: 12px;
+    color: #777;
+}
+
+.pill {
+    background: #eef5ff;
+    color: #1e60d4;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+/* ===== FORMS ===== */
+
+.form-row {
+    display: flex;
+    margin-bottom: 14px;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 12px;
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+.form-group.actions {
+    flex: none;
+    display: flex;
+    align-items: flex-end;
+}
+
+.form-group.actions button {
+    margin-left: 8px;
+}
+
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* ===== ACTIONS ===== */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.form-actions button {
+    margin-left: 10px;
+}
+
+/* ===== TABLE ===== */
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.grid {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid th,
+.grid td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.grid th {
+    background: #f6f7fb;
+    font-weight: 600;
+}
+
+.grid tbody tr:hover {
+    background: #fafafa;
+}
+
+/* ===== MESSAGE ===== */
+
+.msg {
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #fff3cd;
+    border: 1px solid #ffe69c;
+    font-size: 13px;
+}
+
+
+/* ===== Buttons ===== */
+.btn-primary {
+    background: #6c5ce7;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* ===== Tooltip ===== */
+.ui-tooltip {
+    background: #fff8cc;
+    color: #333;
+    border: 1px solid #f1e08a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    max-width: 260px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+
+/* ===== VALIDACIONES ===== */
+
+.form-group {
+  position: relative;
+}
+
+.input-error {
+  border: 1px solid #dc2626 !important;
+  background-color: #fef2f2;
+}
+
+.field-error {
+  font-size: 11px;
+  color: #dc2626;
+  margin-top: 3px;
+  display: none;
+}
+
+
+/* ================= SESSION TIMER ================= */
+
+.session-timer {
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Estados */
+.session-green {
+    color: #16a34a; /* verde */
+}
+
+.session-yellow {
+    color: #f59e0b; /* amarillo fuerte */
+}
+
+.session-red {
+    color: #dc2626; /* rojo */
+}
