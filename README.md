@@ -22,6 +22,18 @@ Breve portal de administración y consulta de clientes construido sobre ASP.NET 
 
 3. Verifique que los procedimientos como `sp_SEVECLIE_Search`, `sp_SEVECLIE_Upsert`, `sp_EstadoCivil_GetAll` y el catálogo `EstadoCivil` estén creados.
 
+## Credenciales de acceso (usuario de prueba)
+
+Para efectos de evaluación, la aplicación incluye un usuario de prueba con las siguientes credenciales:
+
+- **Usuario:** `admin`
+- **Contraseña:** `1234`
+
+> Utiliza la estrategia  cookie para mantener la session , se ha agregado un timer a la pagina con el tiempo de expiracion de la cookie , una vez el contador llega a cero se termina la session y es necesario volver a iniciar session .
+> ⚠️ Estas credenciales son **exclusivamente para la prueba técnica** y no representan un esquema de seguridad productivo.
+
+El sistema valida la sesión mediante cookies y, en caso de no existir una sesión activa, redirige automáticamente a la pantalla de inicio de sesión.
+
 ## Configuración del proyecto
 1. Abra `SevenSuite.Web/Web.config`.
 2. Localice la cadena de conexión `DefaultConnection` y actualice los valores de `Data Source`, `Initial Catalog`, `User ID` y `Password` para apuntar a su servidor, por ejemplo:
