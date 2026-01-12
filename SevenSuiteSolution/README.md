@@ -2,7 +2,7 @@
 Breve portal de administración y consulta de clientes construido sobre ASP.NET Web Forms con una capa de datos basada en procedimientos almacenados.
 
 ## Requisitos previos
-- Visual Studio 2017+ (o MSBuild 14) con soporte para .NET Framework 4.5.2.
+- Visual Studio 2015+ (o MSBuild 14) con soporte para .NET Framework 4.5.2.
 - SQL Server 2016/2019 (puede ser local o alojado) con credenciales que permitan crear bases y objetos.
 - IIS Express o IIS para hospedar el proyecto WebForms.
   
