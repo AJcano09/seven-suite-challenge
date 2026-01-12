@@ -3,6 +3,7 @@ using SevenSuite.Entities;
 using SeventSuite.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace SevenSuite.BLL
 {
@@ -68,6 +69,11 @@ namespace SevenSuite.BLL
         public List<EstadoCivil> GetEstadosCiviles()
         {
             return _catalogoDal.GetEstadosCiviles();
+        }
+
+        public DataTable GetReporte(string cedula, string nombre)
+        {
+            return _clienteDal.GetReporte(cedula, nombre);
         }
     }
 }

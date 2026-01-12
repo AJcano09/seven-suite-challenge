@@ -89,11 +89,16 @@ function bindEvents() {
         buscar();
     });
 
-    $("#btnReporte").click(function () {
-        var ced = encodeURIComponent($("#fCedula").val() || "");
-        var nom = encodeURIComponent($("#fNombre").val() || "");
-        window.location.href =
-            "ReporteClientes.aspx?cedula=" + ced + "&nombre=" + nom;
+    $("#btnReporte").on("click", function () {
+        const cedula = $("#fCedula").val().trim();
+        const nombre = $("#fNombre").val().trim();
+
+        const url =
+            "ReporteClientes.aspx" +
+            "?cedula=" + encodeURIComponent(cedula) +
+            "&nombre=" + encodeURIComponent(nombre);
+
+        window.open(url, "_blank");
     });
 
     $("#btnLogout").click(function () {

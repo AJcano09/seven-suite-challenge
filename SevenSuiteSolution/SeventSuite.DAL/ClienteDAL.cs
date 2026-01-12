@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using SevenSuite.Entities;
-using System.Data.SqlClient;
+﻿using SevenSuite.Entities;
 using SeventSuite.DAL.Helper;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SeventSuite.DAL
 {
@@ -104,5 +105,33 @@ namespace SeventSuite.DAL
                 EstadoCivil = rd.GetString(rd.GetOrdinal("EstadoCivil"))
             };
         }
+
+        public  DataTable GetReporte(string cedula, string nombre)
+        {
+            var parameters = new List<SqlParameter>
+    {
+        new SqlParameter("@Cedula",
+            string.IsNullOrWhiteSpace(cedula) ? (object)DBNull.Value : cedula),
+
+        new SqlParameter("@Nombre",
+            string.IsNullOrWhiteSpace(nombre) ? (object)DBNull.Value : nombre)
+    };
+
+            SqlConnection cn;
+
+            using (var rd = StoredProcedureHelper.ExecuteReader(
+                "dbo.sp_SEVECLIE_Reporte",
+                parameters,
+                out cn))
+            {
+                using (cn)
+                {
+                    var dt = new DataTable();
+                    dt.Load(rd); 
+                    return dt;
+                }
+            }
+        }
+
     }
 }

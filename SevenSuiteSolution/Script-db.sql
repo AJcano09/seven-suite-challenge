@@ -30,6 +30,10 @@ IF OBJECT_ID('dbo.sp_SEVECLIE_Delete', 'P') IS NOT NULL
     DROP PROCEDURE dbo.sp_SEVECLIE_Delete;
 GO
 
+IF OBJECT_ID('dbo.sp_SEVECLIE_Reporte', 'P') IS NOT NULL
+    DROP PROCEDURE dbo.sp_SEVECLIE_Reporte;
+GO
+
 IF OBJECT_ID('dbo.SEVECLIE', 'U') IS NOT NULL
     DROP TABLE dbo.SEVECLIE;
 GO
@@ -227,7 +231,31 @@ BEGIN
 END
 GO
 
+/* =========================================================
+   STORED PROCEDURE: Reporte SEVECLIE
+   ========================================================= */
+CREATE PROCEDURE dbo.sp_SEVECLIE_Reporte
+    @Cedula VARCHAR(20) = NULL,
+    @Nombre VARCHAR(100) = NULL
+AS
+BEGIN
 
+ SET NOCOUNT ON;
+    SELECT
+        c.cedula,
+        c.nombre,
+        c.genero,
+        c.FechaNac,
+        ec.Nombre AS estado_civil,
+        c.CreatedAt AS CreatedAt
+    FROM SEVECLIE c
+    INNER JOIN EstadoCivil ec ON ec.Id = c.EstadoCivilId
+    WHERE
+        (@Cedula IS NULL OR c.cedula LIKE '%' + @Cedula + '%')
+        AND (@Nombre IS NULL OR c.nombre LIKE '%' + @Nombre + '%')
+    ORDER BY c.nombre
+END
+GO
 
 /* =========================================================
    SEEDER: Datos de prueba SEVECLIE
